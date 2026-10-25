@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "0.5.3"
+  version: "0.5.4"
 
 package:
   name: tree-sitter-markdown
@@ -16,12 +16,12 @@ source:
   # upstream restructured setup.py to expect a flat src/ layout that doesn't match
   # what the tarball ships. Reported upstream.
   url: https://github.com/tree-sitter-grammars/tree-sitter-markdown/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: df845b1ab7c7c163ec57d7fa17170c92b04be199bddab02523636efec5224ab6
+  sha256: 481ce2c1cce7b1130bc8455c186052bd0fa461f1ff488666994c6a3da7fca2ac
   patches:
     - patches/0001-fix-setup-py-dual-grammar-paths.patch
 
 build:
-  number: 1
+  number: 0
   # abi3 packages build once at python_min and ship one artifact per platform.
   skip: is_abi3 and not is_python_min
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
